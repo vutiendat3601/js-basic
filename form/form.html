@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <form action="" method="post" id="form_1">
+        <h3 class="heading">Dang ky</h3>
+        <p class="desc">Cung nhau hoc lap trinh mien phi tai F8</p>
+
+        <div class="spacer"></div>
+
+        <div class="form-group">
+            <label for="full_name" class="form-label">Ten day du</label>
+            <input id="full_name" type="text" name="full_name" class="full-name">
+            <span class="form-message"></span>
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label">So dien thoai</label>
+            <input id="email" type="text" name="email" class="email">
+            <span class="form-message"></span>
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label">Mat khau</label>
+            <input id="password" type="password" name="password" class="password">
+            <span class="form-message"></span>
+        </div>
+        <button class="form-submit">Dang ky</button>
+    </form>
+    <script src="./validator.js"></script>
+    <script>
+        Validator({
+            form: "#form_1",
+            rules: [Validator.isRequired("#full_name"),
+            Validator.isEmail("#email")
+            ]
+        });
+    </script>
+</body>
+
+</html>

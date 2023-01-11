@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructoring, rest</title>
+</head>
+
+<body>
+    <script>
+        var brands = ["Samsung", "Apple", "LG", "Google", "Microsoft"];
+        /* var a = brands[0];
+        var b = brands[1];
+        var c = brands[2]; */
+        var [a, b, c] = brands;
+        console.log(`${a}, ${b}, ${c}`);
+        var [a0, , a2, ...rest] = brands;
+        console.log(a0);
+        console.log(a2);
+        console.log(rest);
+
+        var user = {
+            phone: "0898993601",
+            code: "ct06n0110",
+            email: "ct06n0110@actvn.edu.vn",
+            school: "KMA",
+            location: {
+                district: "Quan 7",
+                city: "Ho Chi Minh"
+            }
+            //, clazz: "CT6N"
+        }
+        var { phone, code, clazz = "none", location: { city }, ...rest } = user;
+        console.log(phone);
+        console.log(code);
+        console.log(city);
+        console.log(rest);
+        console.log(clazz);
+
+
+        /* Spread */
+        var country1 = ["Vietnam", "Lao", "Cambodia"];
+        var country2 = ["USA", "UK", "Spain"];
+        var country = [...country1, ...country2];
+        console.log(country);
+
+        var employee = {
+            salary: 10000,
+            name: "Alex",
+            department: "IT"
+        }
+        var manager = {
+            ...employee,
+            salary: 20000
+        }
+        console.log(manager);
+
+    </script>
+</body>
+
+</html>
