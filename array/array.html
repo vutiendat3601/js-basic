@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Basic - Array</title>
+</head>
+
+<body>
+    <script>
+        var countries = [{ name: "US", language: "EN", area: 9834000000 },
+        { name: "VI", language: "vi", area: 331210 },
+        { name: "UK", language: "EN", area: 243610 }];
+
+        /*    executes a provided function once for each array element
+            return undified */
+        countries.forEach((element, index, thisArr) => {
+            console.log(index + " " + element.name);
+            console.log(thisArr);
+        });
+
+        /*  tests whether all elements in the array pass the condition in the provided callback function
+        return truthy value*/
+        var allHasAreaBigger200000KmSq = countries.every((element, index, thisArr) => element.area > 600000);
+        console.log("allHasAreaBigger200000KmSq: " + allHasAreaBigger200000KmSq);
+
+        /*  tests whether at least one element in the array passes the condition in the provided callback function
+        return truthy value */
+        var hasAnyStartsWithV = countries.some((element, index, thisArr) => element.name.startsWith("V"));
+        console.log("hasAnyStartsWithV: " + hasAnyStartsWithV);
+
+        /* returns the first element in the provided array that satisfies the provided testing function */
+        var countryStartsWithV = countries.find((element, index, thisArr) => element.name.startsWith("V"));
+        console.log(countryStartsWithV);
+
+        /* returns a shallow copy of a portion of a given array,
+        filtered down to just the elements from the given array that pass the test implemented by the provided function. */
+        var hasAreaBigger300000KmSq = countries.filter((element, index, thisArr) => element.area > 300000)
+        console.log(hasAreaBigger300000KmSq);
+
+        /* changes content of array */
+        Array.prototype.myMap = function (fnc) {
+            for (var i = 0; i < this.length; i++) {
+                fnc(this[i], i, this);
+            }
+            return this;
+        }
+        
+        // countries.map((element, index, thisArr) => { element.name = "C_" + element.name })
+        countries.myMap((element, index, thisArr) => element.name = "C_" + element.name);
+        console.log(countries);
+
+
+
+
+        /* a single value aggregates with content, think about sql: sum(), count() ... */
+        var initialValue = 0;
+        var sumArea = countries.reduce((accumulator, currentValue, currentIndex, thisArr) => accumulator += currentValue.area, initialValue)
+        console.log(sumArea);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Basic - {For In, For Of} loop</title>
+</head>
+
+<body>
+    <script>
+
+        for (var i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+        var me = {
+            name: "Dat Vu",
+            phone: "0898993601",
+            email: "vutien.dat.3601@gmail.com"
+        }
+
+        for (var k in me) {
+            console.log(me[k]);
+        }
+
+        var languages = ["EN", "VI", "ES", "US"];
+
+        // ForOf can't be used in object, because object is not iterable
+        for (var v of languages) {
+            console.log(v);
+        }
+    </script>
+</body>
+
+</html>

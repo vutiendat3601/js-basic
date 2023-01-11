@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Basic - Object</title>
+</head>
+
+<body>
+    <script>
+        var u = {
+            firstName: "Dat",
+            lastName: "Vu",
+            avatar: "/avatar/vutiendat3601.jpg"
+        }
+        u.title = "JS";
+        console.log(u);
+
+        /* Object constructor */
+        function User(fistName, lastName, avatar) {
+            this.firstName = fistName;
+            this.lastName = lastName;
+            this.avatar = avatar;
+
+            this.getName = () => {
+                return `${this.firstName} ${this.lastName}`;
+            }
+        }
+
+        var author = new User("Dat", "Vu", "/avatar/vutiendat3601.jpg");
+        console.log(author);
+        console.log("birthday: " + author.birthDay);
+        User.prototype.birthDay = "3/6";
+        // console.log(author.getName());
+        var director = new User("James", "Gossling", "/avatar/james.jpg");
+        console.log("birthday: " + director.birthDay);
+        author.comment = "First time learn JS";
+        console.log(director);
+
+
+
+        /* Begin: Prototype */
+
+        /* End: Prototype */
+
+    </script>
+</body>
+
+</html>
