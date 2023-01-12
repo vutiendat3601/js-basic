@@ -47,7 +47,7 @@
             }
             return this;
         }
-        
+
         // countries.map((element, index, thisArr) => { element.name = "C_" + element.name })
         countries.myMap((element, index, thisArr) => element.name = "C_" + element.name);
         console.log(countries);
@@ -59,6 +59,7 @@
         var initialValue = 0;
         var sumArea = countries.reduce((accumulator, currentValue, currentIndex, thisArr) => accumulator += currentValue.area, initialValue)
         console.log(sumArea);
+
     </script>
 </body>
 

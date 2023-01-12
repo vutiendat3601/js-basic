@@ -21,7 +21,12 @@
             <span class="form-message"></span>
         </div>
         <div class="form-group">
-            <label for="email" class="form-label">So dien thoai</label>
+            <label for="phone" class="form-label">So dien thoai</label>
+            <input id="phone" type="tel" name="phone" class="phone">
+            <span class="form-message"></span>
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label">Email</label>
             <input id="email" type="text" name="email" class="email">
             <span class="form-message"></span>
         </div>
@@ -30,16 +35,46 @@
             <input id="password" type="password" name="password" class="password">
             <span class="form-message"></span>
         </div>
+        <div class="form-group">
+            <label for="password_confirmation" class="form-label">Mat khau</label>
+            <input id="password_confirmation" type="password" name="password_confirmation"
+                class="password-confirmation">
+            <span class="form-message"></span>
+        </div>
         <button class="form-submit">Dang ky</button>
     </form>
     <script src="./validator.js"></script>
     <script>
         Validator({
             form: "#form_1",
-            rules: [Validator.isRequired("#full_name"),
-            Validator.isEmail("#email")
+            formMessageSelector: ".form-message",
+            invalidClassName: "invalid",
+            rules: [
+                Validator.isRequired("#full_name"),
+                Validator.minLength("#full_name", "Ten day du", 6),
+                Validator.isEmail("#email"),
+                Validator.minLength("#password", "Mat khau", 6),
+                Validator.isSameValue("#password_confirmation",
+                    () => document.querySelector("#form_1 #password").value)
             ]
         });
+        function a(x) {
+            x++;
+            return function () {
+                console.log(++x);
+            };
+        }
+
+        a(1)();
+        a(1)();
+        a(1)();
+
+        let x = a(1);
+        x();
+        x();
+        x();
+// Output: ?
+
     </script>
 </body>
 
